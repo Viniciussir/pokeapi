@@ -6,23 +6,23 @@
         PokeAPI - Lista de Pokémon
     </h1>
 
-    <div class="pokemon-container">
+    <section class="pokemon-container">
         <div *ngFor="let pokemon of pokemons" class="pokemon-item">
             <div class="pokemon">
                 <div class="pokemon-img">
-                    <img [src]="pokemon.img" alt="{{ pokemon.name }}">
+                    <img (click)="detalharPokemon(pokemon.id, pokemon.name)" [src]="pokemon.img" alt="{{ pokemon.name }}">
                     <button></button>
                 </div>
                 <span>{{ pokemon.name }}</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="button-container">
+    <section class="button-container">
         <button [disabled]="offset == 0" (click)="carregarListaPokemons(offset - 20, limit)">Página Anterior</button>
         <button (click)="carregarMaisPokemons(offset, limit)">Carregar mais Pokémon</button>
         <button (click)="carregarListaPokemons(offset + 20, limit)">Próxima Página</button>
-    </div>   
+    </section>   
     
 </app-container>
 

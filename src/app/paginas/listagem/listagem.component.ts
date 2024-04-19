@@ -1,4 +1,4 @@
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { NavbarComponent } from '../../componentes/navbar/navbar.component';
@@ -28,7 +28,8 @@ export class ListagemComponent implements OnInit{
   pokemons: any[] = [];
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ){
   }
   
@@ -92,6 +93,10 @@ export class ListagemComponent implements OnInit{
     } catch (error) {
       console.error('Erro ao carregar imagem do Pokémon:', error);
     }
+  }
+
+  detalharPokemon(id :any, name:any){
+    this.router.navigate(['/detalhes-pokemon', id, name]);
   }
 
 }

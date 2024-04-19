@@ -1,5 +1,5 @@
 .container {
-    height: 100%;
+    min-height: 83vh;
     margin: 7vh 15vw 0 15vw;
     border: 2px solid #000000;
     border-radius: 10px;

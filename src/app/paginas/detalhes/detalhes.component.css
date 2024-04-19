@@ -1,0 +1,41 @@
+.pokemon-name {
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  color: #000000;
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.pokemon-info {
+  display: flex;
+  margin: 2vw;
+}
+
+.pokemon-image {
+  width: 20vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.width{
+  width: 50%;
+  padding: 20px; 
+}
+
+.pokemon-info p {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.pokemon-info strong {
+  font-weight: bold;
+  color: #000000;
+}
+
+

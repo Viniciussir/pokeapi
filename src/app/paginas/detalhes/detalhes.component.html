@@ -2,7 +2,23 @@
 
 <app-container>
 
-  Favoritos
+  <section>
+    <span class="pokemon-name">{{ name }}</span>
+    <div class="pokemon-info">
+      <img class="pokemon-image" src="{{ img }}" alt="Imagem do {{ name }}">
+      <div class="width">
+        <p><strong>HP:</strong> {{ hp }}</p>
+        <p><strong>Ataque:</strong> {{ attack }}</p>
+        <p><strong>Defesa:</strong> {{ defense }}</p>
+        <p><strong>Ataque Especial:</strong> {{ specialAttack }}</p>
+        <p><strong> Defesa especial:</strong> {{ specialDefense }}</p>
+        <p><strong>Velocidade:</strong> {{ speed }}</p>
+        <p><strong>Característica: </strong> {{ caracteristicas }} </p>
+        <p><strong>Habilidades: </strong> {{ abilities }} </p>
+        <p><strong>Tipo:</strong> {{ types }}</p>
+      </div>
+    </div>
+  </section>
 
 </app-container>
 

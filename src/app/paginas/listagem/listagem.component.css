@@ -30,7 +30,8 @@
 }
 
 .pokemon-img img{
-    background-color: #e7e5e5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
     width: 10vw;
     border-radius: 10px;
 }
@@ -49,7 +50,7 @@
     width: 30px;
     height: 30px;
     background-image: url('../../../assets/img/star-pokemon.png');
-    background-color: #e7e5e5;
+    background-color: #ffffff;
     background-size: cover;
     border: none;
     position: absolute;
@@ -60,7 +61,7 @@
 
 .pokemon-img button:hover {
     transform: scale(1.2);
-    background-color: #e7e5e5;
+    background-color: #ffffff;
 }
 
 .button-container{
