@@ -59,6 +59,28 @@ export class ListagemComponent implements OnInit{
     }
   }
 
+  async carregarMaisPokemons(offset: number, limit:number) {
+    try {
+      this.offset = offset + 20;
+      this.limit = limit;
+      const observable = this.apiService.obterListaPokemon(this.offset, this.limit);
+      const data = await firstValueFrom(observable);
+      for (const pokemon of data.results) {
+        const pokemonNumber = parseInt(pokemon.url.split('/').filter(Boolean).pop());
+        if (pokemonNumber) {
+          const pokemonData = {
+            name: pokemon.name,
+            id: pokemonNumber
+          };
+          this.pokemons.push(pokemonData);
+          await this.carregarImagemPokemon(pokemonNumber);
+        }
+      }
+    } catch (error) {
+      console.error('Erro ao carregar Pokémon:', error);
+    }
+  }
+
   async carregarImagemPokemon(id: number) {
     try {
       const observable = this.apiService.obterImagemPokemon(id);

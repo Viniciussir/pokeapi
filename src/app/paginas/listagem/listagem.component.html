@@ -2,6 +2,10 @@
 
 <app-container>
 
+    <h1 class="title-pokeapi">
+        PokeAPI - Lista de Pokémon
+    </h1>
+
     <div class="pokemon-container">
         <div *ngFor="let pokemon of pokemons" class="pokemon-item">
             <div class="pokemon">
@@ -14,10 +18,12 @@
         </div>
     </div>
 
-    <button (click)="carregarListaPokemons(offset - 20, limit)" [disabled]="offset === 0">Página Anterior</button>
-    <button (click)="carregarListaPokemons(offset + 20, limit)">Próxima Página</button>
-    <button (click)="carregarListaPokemons(offset, limit + 20)">Mostrar mais</button>
-
+    <div class="button-container">
+        <button [disabled]="offset == 0" (click)="carregarListaPokemons(offset - 20, limit)">Página Anterior</button>
+        <button (click)="carregarMaisPokemons(offset, limit)">Carregar mais Pokémon</button>
+        <button (click)="carregarListaPokemons(offset + 20, limit)">Próxima Página</button>
+    </div>   
+    
 </app-container>
 
 <app-footer></app-footer>
