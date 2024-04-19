@@ -2,14 +2,21 @@
 
 <app-container>
 
-    Desafio Frontend Salsa - Pokeapi
+    <div class="pokemon-container">
+        <div *ngFor="let pokemon of pokemons" class="pokemon-item">
+            <div class="pokemon">
+                <div class="pokemon-img">
+                    <img [src]="pokemon.img" alt="{{ pokemon.name }}">
+                    <button></button>
+                </div>
+                <span>{{ pokemon.name }}</span>
+            </div>
+        </div>
+    </div>
 
-    Realizado por Vinicius Coelho Scampini
-
-    <ul>
-        <li>Teste</li>
-        <li>Teste</li>
-    </ul>
+    <button (click)="carregarListaPokemons(offset - 20, limit)" [disabled]="offset === 0">Página Anterior</button>
+    <button (click)="carregarListaPokemons(offset + 20, limit)">Próxima Página</button>
+    <button (click)="carregarListaPokemons(offset, limit + 20)">Mostrar mais</button>
 
 </app-container>
 
