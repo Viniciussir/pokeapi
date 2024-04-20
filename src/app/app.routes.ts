@@ -18,6 +18,10 @@ export const routes: Routes = [
         component:  DetalhesComponent
     },
     {
+        path: "detalhes-pokemon",
+        component:  DetalhesComponent
+    },
+    {
         path: "favoritos-pokemon",
         component:  FavoritosComponent
     }

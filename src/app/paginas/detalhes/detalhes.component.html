@@ -3,21 +3,28 @@
 <app-container>
 
   <section>
-    <span class="pokemon-name">{{ name }}</span>
+    <span class="pokemon-name">Check Pokemon Details</span>
+    <span class="pokemon-name"> {{ name }}</span>
     <div class="pokemon-info">
       <img class="pokemon-image" src="{{ img }}" alt="Imagem do {{ name }}">
       <div class="width">
         <p><strong>HP:</strong> {{ hp }}</p>
-        <p><strong>Ataque:</strong> {{ attack }}</p>
-        <p><strong>Defesa:</strong> {{ defense }}</p>
-        <p><strong>Ataque Especial:</strong> {{ specialAttack }}</p>
-        <p><strong> Defesa especial:</strong> {{ specialDefense }}</p>
-        <p><strong>Velocidade:</strong> {{ speed }}</p>
-        <p><strong>Característica: </strong> {{ caracteristicas }} </p>
-        <p><strong>Habilidades: </strong> {{ abilities }} </p>
-        <p><strong>Tipo:</strong> {{ types }}</p>
+        <p><strong>Attack:</strong> {{ attack }}</p>
+        <p><strong>Defense:</strong> {{ defense }}</p>
+        <p><strong>Special Attack:</strong> {{ specialAttack }}</p>
+        <p><strong>Special defense:</strong> {{ specialDefense }}</p>
+        <p><strong>Speed:</strong> {{ speed }}</p>
+        <p><strong>Characteristics: </strong> {{ caracteristicas }} </p>
+        <p><strong>Skills: </strong> {{ abilities }} </p>
+        <p><strong>Type:</strong> {{ types }}</p>
       </div>
     </div>
+
+    <div class="button-container">
+      <button routerLink="/listagem-pokemon" >Return</button>
+      <button>Search Pokemon</button>
+    </div>
+    
   </section>
 
 </app-container>

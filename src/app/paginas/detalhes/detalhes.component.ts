@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../componentes/navbar/navbar.component';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { FooterComponent } from '../../componentes/footer/footer.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { firstValueFrom } from 'rxjs';
 
@@ -12,7 +12,8 @@ import { firstValueFrom } from 'rxjs';
   imports: [
     NavbarComponent,
     ContainerComponent,
-    FooterComponent
+    FooterComponent,
+    RouterLink
   ],
   templateUrl: './detalhes.component.html',
   styleUrl: './detalhes.component.css'
