@@ -6,6 +6,7 @@ import { FooterComponent } from '../../componentes/footer/footer.component';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
+import { MessageComponent } from '../../componentes/message/message.component';
 
 @Component({
   selector: 'app-listagem',
@@ -16,6 +17,7 @@ import { firstValueFrom } from 'rxjs';
     NavbarComponent,
     FooterComponent,
     CommonModule,
+    MessageComponent
   ],
   templateUrl: './listagem.component.html',
   styleUrl: './listagem.component.css'
@@ -28,6 +30,9 @@ export class ListagemComponent implements OnInit{
   pokemons: any[] = [];
 
   isFavorited:boolean = false;
+
+  indShowMessage:boolean = false;
+  message:string = '';
 
   constructor(
     private apiService: ApiService,
@@ -117,6 +122,7 @@ export class ListagemComponent implements OnInit{
     if (index !== -1) {
       this.pokemons[index].isFavorited = true;
     }
+    this.showMessage(true);
   }
 
   removeToFavorite(item: any){
@@ -125,6 +131,7 @@ export class ListagemComponent implements OnInit{
     if (index !== -1) {
       this.pokemons[index].isFavorited = false;
     }
+    this.showMessage(false);
   }
 
   updateFavoritesStatus(itemList: any[]): void {
@@ -132,6 +139,22 @@ export class ListagemComponent implements OnInit{
     itemList.forEach(item => {
       item.isFavorited = favorites.some(fav => fav.id === item.id);
     });
+  }
+
+  showMessage(event:any){
+    if(event){
+      this.message = "Your pokemon has been favorited!";
+      this.indShowMessage = true;
+      setTimeout(() => {
+        this.indShowMessage = false;
+      }, 5000);
+    } else{
+      this.message = "Your Pokémon removed from favorites!";
+      this.indShowMessage = true;
+      setTimeout(() => {
+        this.indShowMessage = false;
+      }, 5000);
+    }
   }
 
 }
