@@ -11,7 +11,7 @@
             <div class="pokemon">
                 <div class="pokemon-img">
                     <img (click)="detalharPokemon(pokemon.id, pokemon.name)" [src]="pokemon.img" alt="{{ pokemon.name }}">
-                    <button></button>
+                    <button [ngClass]="{ 'favorited': pokemon.isFavorited }" (click)="checkFavorites(pokemon)"></button>
                 </div>
                 <span>{{ pokemon.name }}</span>
             </div>

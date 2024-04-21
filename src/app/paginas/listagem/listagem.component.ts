@@ -27,9 +27,11 @@ export class ListagemComponent implements OnInit{
   pokemon:any = {};
   pokemons: any[] = [];
 
+  isFavorited:boolean = false;
+
   constructor(
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
   ){
   }
   
@@ -53,6 +55,7 @@ export class ListagemComponent implements OnInit{
           };
           this.pokemons.push(pokemonData);
           await this.carregarImagemPokemon(pokemonNumber);
+          this.updateFavoritesStatus(this.pokemons);
         }
       }
     } catch (error) {
@@ -75,6 +78,7 @@ export class ListagemComponent implements OnInit{
           };
           this.pokemons.push(pokemonData);
           await this.carregarImagemPokemon(pokemonNumber);
+          this.updateFavoritesStatus(this.pokemons);
         }
       }
     } catch (error) {
@@ -97,6 +101,37 @@ export class ListagemComponent implements OnInit{
 
   detalharPokemon(id :any, name:any){
     this.router.navigate(['/detalhes-pokemon', id, name]);
+  }
+
+  checkFavorites(pokemon:any){
+    if(pokemon.isFavorited){
+      this.removeToFavorite(pokemon);
+    } else {
+      this.addToFavorites(pokemon);
+    }
+  }
+
+  addToFavorites(item: any): void {
+    this.apiService.addFavorite(item);
+    const index = this.pokemons.findIndex(pokemon => pokemon.id === item.id);
+    if (index !== -1) {
+      this.pokemons[index].isFavorited = true;
+    }
+  }
+
+  removeToFavorite(item: any){
+    this.apiService.removeFavorite(item);
+    const index = this.pokemons.findIndex(pokemon => pokemon.id === item.id);
+    if (index !== -1) {
+      this.pokemons[index].isFavorited = false;
+    }
+  }
+
+  updateFavoritesStatus(itemList: any[]): void {
+    const favorites = this.apiService.getFavorites();
+    itemList.forEach(item => {
+      item.isFavorited = favorites.some(fav => fav.id === item.id);
+    });
   }
 
 }

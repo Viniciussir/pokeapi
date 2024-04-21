@@ -49,7 +49,6 @@
 .pokemon-img button {
     width: 30px;
     height: 30px;
-    background-image: url('../../../assets/img/star-pokemon.png');
     background-color: #ffffff;
     background-size: cover;
     border: none;
@@ -57,6 +56,14 @@
     top: 5px; 
     right: 5px;
     outline: none;
+}
+
+.pokemon-img button.favorited {
+    background-image: url('../../../assets/img/star-pokemon.png');
+}
+
+.pokemon-img button:not(.favorited) {
+    background-image: url('../../../assets/img/star-pokemon-branca.png');
 }
 
 .pokemon-img button:hover {
