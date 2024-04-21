@@ -98,14 +98,3 @@ button:disabled {
     opacity: 0.5; 
     cursor: not-allowed;
 }
-
-.title-pokeapi{
-    font-size: 30px;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-

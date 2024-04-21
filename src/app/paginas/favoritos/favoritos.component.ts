@@ -31,7 +31,7 @@ export class FavoritosComponent {
   }
 
   detalharPokemon(id :any, name:any){
-    this.router.navigate(['/detalhes-pokemon', id, name]);
+     this.router.navigate(['/detalhes-pokemon', id, name], { queryParams: { origin: 'favoritos-pokemon'}});
   }
 
   removeToFavorite(item: any){

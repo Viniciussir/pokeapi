@@ -3,7 +3,9 @@
 <app-container>
 
   <section>
-    <span class="pokemon-name">Check Pokemon Details</span>
+    <span class="title-pokeapi">
+      Check Pokemon Details
+    </span>
     <span class="pokemon-name"> {{ name }}</span>
     <div class="pokemon-info">
       <img class="pokemon-image" src="{{ img }}" alt="Imagem do {{ name }}">
@@ -21,7 +23,7 @@
     </div>
 
     <div class="button-container">
-      <button routerLink="/listagem-pokemon" >Return</button>
+      <button (click)="return()">Return</button>
       <button>Search Pokemon</button>
     </div>
     

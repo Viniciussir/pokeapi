@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../componentes/navbar/navbar.component';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { FooterComponent } from '../../componentes/footer/footer.component';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { firstValueFrom } from 'rxjs';
 
@@ -33,16 +33,22 @@ export class DetalhesComponent implements OnInit {
   speed: string = '';
   caracteristicas: string = '';
 
+  origin:any = '';
+
   constructor(
     private route: ActivatedRoute,
-     private apiService: ApiService
-  ) { }
+    private apiService: ApiService,
+    private router: Router,
+  ) {
+    this.origin = this.route.snapshot.queryParams['origin'];
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.name = params['name'];
       this.id = Number(params['id']);
     });
+    
     this.carregarInformacoesPokemon(this.id);
     this.carregarInfo(this.id);
   }
@@ -69,10 +75,17 @@ export class DetalhesComponent implements OnInit {
     try {
       const observable = this.apiService.obterInfo(id);
       const data = await firstValueFrom(observable);
-      this.caracteristicas = data.descriptions.find((stat: any) => stat.language.name === 'en').description
-      console.log(data);
+      this.caracteristicas = data.descriptions.find((stat: any) => stat.language.name === 'en').description;
     } catch (error) {
       console.error('Erro ao carregar info do Pokémon:', error);
+    }
+  }
+
+  return(){
+    if(this.origin == "listagem-pokemon"){
+      this.router.navigate(['/listagem-pokemon']);
+    } else {
+      this.router.navigate(['/favoritos-pokemon']);
     }
   }
 

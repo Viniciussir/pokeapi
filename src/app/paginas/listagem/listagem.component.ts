@@ -15,7 +15,7 @@ import { firstValueFrom } from 'rxjs';
     ContainerComponent,
     NavbarComponent,
     FooterComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './listagem.component.html',
   styleUrl: './listagem.component.css'
@@ -100,7 +100,7 @@ export class ListagemComponent implements OnInit{
   }
 
   detalharPokemon(id :any, name:any){
-    this.router.navigate(['/detalhes-pokemon', id, name]);
+    this.router.navigate(['/detalhes-pokemon', id, name], { queryParams: { origin: 'listagem-pokemon'}});
   }
 
   checkFavorites(pokemon:any){
