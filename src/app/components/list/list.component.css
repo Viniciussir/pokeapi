@@ -7,7 +7,7 @@
 
 .list-item {
     flex: 0 0 18%;
-    max-width: 18%; 
+    max-width: 18%;
     box-sizing: border-box;
     margin: 1%;
 }
@@ -19,8 +19,8 @@
 }
 
 .item-img {
-    position: relative; 
-    display: inline-block; 
+    position: relative;
+    display: inline-block;
 }
 
 .item-img img {
@@ -47,7 +47,7 @@
     background-size: cover;
     border: none;
     position: absolute;
-    top: 5px; 
+    top: 5px;
     right: 5px;
     outline: none;
 }
@@ -70,4 +70,25 @@
     text-transform: capitalize;
     font-size: 25px;
     padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .list-container {
+        margin: 0 5%; /* Reduzindo a margem para dispositivos móveis */
+    }
+
+    .item-img img {
+        width: 100%;
+        max-width: 150px;
+    }
+    
+    .list-item {
+        flex: 0 0 45%; /* Ajustando o tamanho dos itens para caber em dispositivos móveis */
+        max-width: 45%;
+        margin: 2.5%; /* Ajustando a margem para dispositivos móveis */
+    }
+    
+    .item-name {
+        font-size: 18px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
+    }
 }

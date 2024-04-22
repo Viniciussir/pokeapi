@@ -6,3 +6,10 @@
 body {
     background: linear-gradient(180deg, #05acff 0%, #e2ef72 80%);
 }
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10%;
+  padding: 10px;
+}

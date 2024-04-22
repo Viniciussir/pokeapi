@@ -7,6 +7,7 @@ import { ContainerComponent } from '../../components/container/container.compone
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { TitleComponent } from '../../components/title/title.component';
+import { TableComponent } from '../../components/table/table.component';
 
 @Component({
   selector: 'app-details-pokemon',
@@ -17,7 +18,8 @@ import { TitleComponent } from '../../components/title/title.component';
     FooterComponent,
     RouterLink,
     ButtonComponent,
-    TitleComponent
+    TitleComponent,
+    TableComponent
   ],
   templateUrl: './details-pokemon.component.html',
   styleUrl: './details-pokemon.component.css'
@@ -35,7 +37,7 @@ export class DetailsPokemonComponent implements OnInit {
   specialAttack: string = '';
   specialDefense: string = '';
   speed: string = '';
-  caracteristicas: string = '';
+  characteristics: string = '';
 
   origin:any = '';
 
@@ -79,7 +81,7 @@ export class DetailsPokemonComponent implements OnInit {
     try {
       const observable = this.apiService.getCharacteristic(id);
       const data = await firstValueFrom(observable);
-      this.caracteristicas = data.descriptions.find((stat: any) => stat.language.name === 'en').description;
+      this.characteristics = data.descriptions.find((stat: any) => stat.language.name === 'en').description;
     } catch (error) {
       console.error('Error loading Pokémon Characteristic:', error);
     }

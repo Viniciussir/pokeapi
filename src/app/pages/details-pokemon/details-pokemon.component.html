@@ -8,21 +8,26 @@
 
   <section>
     <span class="pokemon-name"> {{ name }}</span>
-    <div class="pokemon-info">
-      <img class="pokemon-image" src="{{ img }}" alt="Imagem do {{ name }}">
-      <div class="width">
-        <p><strong>HP:</strong> {{ hp }}</p>
-        <p><strong>Attack:</strong> {{ attack }}</p>
-        <p><strong>Defense:</strong> {{ defense }}</p>
-        <p><strong>Special Attack:</strong> {{ specialAttack }}</p>
-        <p><strong>Special defense:</strong> {{ specialDefense }}</p>
-        <p><strong>Speed:</strong> {{ speed }}</p>
-        <p><strong>Characteristics: </strong> {{ caracteristicas }} </p>
-        <p><strong>Skills: </strong> {{ abilities }} </p>
-        <p><strong>Type:</strong> {{ types }}</p>
+
+    <div class="pokemon-container">
+      <div class="pokemon-image">
+        <img src="{{ img }}" alt="Imagem do {{ name }}">  
+      </div>
+      <div class="pokemon-table">
+        <app-table
+          [hp]="hp"
+          [attack]="attack"
+          [defense]="defense"
+          [specialAttack]="specialAttack"
+          [specialDefense]="specialDefense"
+          [speed]="speed"
+          [types]="types"
+          [characteristics]="characteristics"
+          [abilities]="abilities">
+        </app-table>
       </div>
     </div>
-
+  
     <div class="button-container">
         <app-button 
           [indDisabled]="false"
