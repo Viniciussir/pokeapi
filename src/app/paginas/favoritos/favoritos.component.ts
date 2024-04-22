@@ -42,7 +42,7 @@ export class FavoritosComponent {
   removeToFavorite(item: any){
     this.pokemons = this.pokemons.filter(pokemon => pokemon.id !== item.id);
     this.apiService.removeFavorite(item);  
-    this.message = "Your Pokémon removed from favorites!";
+    this.message = "Your Pokémon has been removed from favorites!";
     this.indShowMessage = true;
      setTimeout(() => {
         this.indShowMessage = false;

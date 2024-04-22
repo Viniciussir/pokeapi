@@ -149,7 +149,7 @@ export class ListagemComponent implements OnInit{
         this.indShowMessage = false;
       }, 5000);
     } else{
-      this.message = "Your Pokémon removed from favorites!";
+      this.message = "Your Pokémon has been removed from favorites!";
       this.indShowMessage = true;
       setTimeout(() => {
         this.indShowMessage = false;
