@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ListagemComponent } from './paginas/listagem/listagem.component';
-import { DetalhesComponent } from './paginas/detalhes/detalhes.component';
-import { FavoritosComponent } from './paginas/favoritos/favoritos.component';
+import { CatalogPokemonComponent } from './pages/catalog-pokemon/catalog-pokemon.component';
+import { DetailsPokemonComponent } from './pages/details-pokemon/details-pokemon.component';
+import { FavoritesPokemonComponent } from './pages/favorites-pokemon/favorites-pokemon.component';
 
 export const routes: Routes = [
      {
@@ -11,18 +11,18 @@ export const routes: Routes = [
     },
     {
         path: "listagem-pokemon",
-        component: ListagemComponent
+        component: CatalogPokemonComponent
     },
     {
         path: "detalhes-pokemon/:id/:name",
-        component:  DetalhesComponent
+        component:  DetailsPokemonComponent
     },
     {
         path: "detalhes-pokemon",
-        component:  DetalhesComponent
+        component:  DetailsPokemonComponent
     },
     {
         path: "favoritos-pokemon",
-        component:  FavoritosComponent
+        component:  FavoritesPokemonComponent
     }
 ];

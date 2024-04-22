@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ListagemComponent } from './paginas/listagem/listagem.component';
-import { DetalhesComponent } from './paginas/detalhes/detalhes.component';
-import { FavoritosComponent } from './paginas/favoritos/favoritos.component';
-import { NavbarComponent } from './componentes/navbar/navbar.component';
-import { FooterComponent } from './componentes/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CatalogPokemonComponent } from './pages/catalog-pokemon/catalog-pokemon.component';
+import { DetailsPokemonComponent } from './pages/details-pokemon/details-pokemon.component';
+import { FavoritesPokemonComponent } from './pages/favorites-pokemon/favorites-pokemon.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    ListagemComponent,
-    DetalhesComponent,
-    FavoritosComponent,
+    CatalogPokemonComponent,
+    DetailsPokemonComponent,
+    FavoritesPokemonComponent,
     NavbarComponent,
     FooterComponent
   ],

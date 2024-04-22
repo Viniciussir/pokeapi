@@ -1,28 +1,27 @@
-import { Router, RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ContainerComponent } from '../../componentes/container/container.component';
-import { NavbarComponent } from '../../componentes/navbar/navbar.component';
-import { FooterComponent } from '../../componentes/footer/footer.component';
 import { ApiService } from '../../services/api.service';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
-import { MessageComponent } from '../../componentes/message/message.component';
+import { ContainerComponent } from '../../components/container/container.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { MessageComponent } from '../../components/message/message.component';
 
 @Component({
-  selector: 'app-listagem',
+  selector: 'app-catalog-pokemon',
   standalone: true,
   imports: [
-    RouterLink,
     ContainerComponent,
     NavbarComponent,
     FooterComponent,
     CommonModule,
     MessageComponent
   ],
-  templateUrl: './listagem.component.html',
-  styleUrl: './listagem.component.css'
+  templateUrl: './catalog-pokemon.component.html',
+  styleUrl: './catalog-pokemon.component.css'
 })
-export class ListagemComponent implements OnInit{
+export class CatalogPokemonComponent implements OnInit {
 
   offset:number = 0;
   limit:number = 20;
@@ -156,5 +155,4 @@ export class ListagemComponent implements OnInit{
       }, 5000);
     }
   }
-
 }

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../componentes/navbar/navbar.component';
-import { ContainerComponent } from '../../componentes/container/container.component';
-import { FooterComponent } from '../../componentes/footer/footer.component';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { MessageComponent } from '../../components/message/message.component';
 import { CommonModule } from '@angular/common';
-import { MessageComponent } from '../../componentes/message/message.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { ContainerComponent } from '../../components/container/container.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
-  selector: 'app-favoritos',
+  selector: 'app-favorites-pokemon',
   standalone: true,
   imports: [
     NavbarComponent,
@@ -17,10 +17,10 @@ import { MessageComponent } from '../../componentes/message/message.component';
     CommonModule,
     MessageComponent
   ],
-  templateUrl: './favoritos.component.html',
-  styleUrl: './favoritos.component.css'
+  templateUrl: './favorites-pokemon.component.html',
+  styleUrl: './favorites-pokemon.component.css'
 })
-export class FavoritosComponent {
+export class FavoritesPokemonComponent {
 
   pokemon:any = {};
   pokemons: any[] = [];

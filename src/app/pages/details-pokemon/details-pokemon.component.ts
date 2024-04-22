@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../componentes/navbar/navbar.component';
-import { ContainerComponent } from '../../componentes/container/container.component';
-import { FooterComponent } from '../../componentes/footer/footer.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { firstValueFrom } from 'rxjs';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { ContainerComponent } from '../../components/container/container.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
-  selector: 'app-detalhes',
+  selector: 'app-details-pokemon',
   standalone: true,
   imports: [
     NavbarComponent,
@@ -15,10 +15,10 @@ import { firstValueFrom } from 'rxjs';
     FooterComponent,
     RouterLink
   ],
-  templateUrl: './detalhes.component.html',
-  styleUrl: './detalhes.component.css'
+  templateUrl: './details-pokemon.component.html',
+  styleUrl: './details-pokemon.component.css'
 })
-export class DetalhesComponent implements OnInit {
+export class DetailsPokemonComponent implements OnInit {
 
   id: number = 0;
   name: string = '';
