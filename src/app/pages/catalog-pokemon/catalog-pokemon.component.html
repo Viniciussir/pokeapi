@@ -2,14 +2,14 @@
 
 <app-container>
 
-    <span class="title-pokeapi">
-        PokeAPI - List of Pokémon
-    </span>
+    <app-title
+        [value]="'List of Pokémon'">
+    </app-title>
 
     <app-list
         [options]="pokemons"
         [value]="pokemon"
-        (clickImgAction)="detalharPokemon($event)"
+        (clickImgAction)="detailPokemon($event)"
         (clickButtonAction)="checkFavorites($event)">
     </app-list>
 
@@ -17,19 +17,19 @@
         <app-button 
             [indDisabled]="offset == 0"
             [name]="'Previous page'"
-            (action)="carregarListaPokemons(offset - 20, limit)" >
+            (action)="loadListPokemons(offset - 20, limit)" >
         </app-button>
 
         <app-button 
             [indDisabled]="false"
             [name]="'Load more Pokémon'"
-            (action)="carregarMaisPokemons(offset, limit)">
+            (action)="loadMorePokemons(offset, limit)">
         </app-button>
 
         <app-button 
             [indDisabled]="false"
             [name]="'Next page'"
-            (action)="carregarListaPokemons(offset + 20, limit)" >
+            (action)="loadListPokemons(offset + 20, limit)" >
         </app-button>
     
     </section>   

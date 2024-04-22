@@ -15,22 +15,22 @@ export class ApiService {
     private http: HttpClient
   ) {}
 
-  obterListaPokemon(offset:number, limit:number): Observable<any> {
+  getListPokemon(offset:number, limit:number): Observable<any> {
     const url = `${this.baseUrl}?offset=${offset}&limit=${limit}`;
     return this.http.get<any>(url);
   }
 
-  obterImagemPokemon(id: number): Observable<any> {
+  getImagePokemon(id: number): Observable<any> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<any>(url);
   }
 
-  obterInformacoesPokemon(id: number): Observable<any> {
+  getInformationPokemon(id: number): Observable<any> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<any>(url);
   }
 
-  obterInfo(id: number): Observable<any> {
+  getCharacteristic(id: number): Observable<any> {
     const url = `${this.url}/characteristic/${id}`;
     return this.http.get<any>(url);
   }
@@ -50,7 +50,6 @@ export class ApiService {
       localStorage.setItem(this.favoritesKey, JSON.stringify(favorites));
     }
   }
-
 
   removeFavorite(item: any): void {
     item.isFavorited = false;

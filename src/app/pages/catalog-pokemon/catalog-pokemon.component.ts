@@ -9,6 +9,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { MessageComponent } from '../../components/message/message.component';
 import { ButtonComponent } from '../../components/button/button.component';
+import { TitleComponent } from '../../components/title/title.component';
 
 @Component({
   selector: 'app-catalog-pokemon',
@@ -20,7 +21,8 @@ import { ButtonComponent } from '../../components/button/button.component';
     CommonModule,
     MessageComponent,
     ButtonComponent,
-    ListComponent
+    ListComponent,
+    TitleComponent
   ],
   templateUrl: './catalog-pokemon.component.html',
   styleUrl: './catalog-pokemon.component.css'
@@ -44,15 +46,15 @@ export class CatalogPokemonComponent implements OnInit {
   }
   
   ngOnInit(){
-    this.carregarListaPokemons(this.offset,this.limit);
+    this.loadListPokemons(this.offset,this.limit);
   }
 
-  async carregarListaPokemons(offset: number, limit:number) {
+  async loadListPokemons(offset: number, limit:number) {
     try {
       this.pokemons = [];
       this.offset = offset;
       this.limit = limit;
-      const observable = this.apiService.obterListaPokemon(offset, limit);
+      const observable = this.apiService.getListPokemon(offset, limit);
       const data = await firstValueFrom(observable);
       for (const pokemon of data.results) {
         const pokemonNumber = parseInt(pokemon.url.split('/').filter(Boolean).pop());
@@ -62,20 +64,20 @@ export class CatalogPokemonComponent implements OnInit {
             id: pokemonNumber
           };
           this.pokemons.push(pokemonData);
-          await this.carregarImagemPokemon(pokemonNumber);
+          await this.loadImagePokemon(pokemonNumber);
           this.updateFavoritesStatus(this.pokemons);
         }
       }
     } catch (error) {
-      console.error('Erro ao carregar Pokémon:', error);
+      console.error('Error loading Pokémon:', error);
     }
   }
 
-  async carregarMaisPokemons(offset: number, limit:number) {
+  async loadMorePokemons(offset: number, limit:number) {
     try {
       this.offset = offset + 20;
       this.limit = limit;
-      const observable = this.apiService.obterListaPokemon(this.offset, this.limit);
+      const observable = this.apiService.getListPokemon(this.offset, this.limit);
       const data = await firstValueFrom(observable);
       for (const pokemon of data.results) {
         const pokemonNumber = parseInt(pokemon.url.split('/').filter(Boolean).pop());
@@ -85,18 +87,18 @@ export class CatalogPokemonComponent implements OnInit {
             id: pokemonNumber
           };
           this.pokemons.push(pokemonData);
-          await this.carregarImagemPokemon(pokemonNumber);
+          await this.loadImagePokemon(pokemonNumber);
           this.updateFavoritesStatus(this.pokemons);
         }
       }
     } catch (error) {
-      console.error('Erro ao carregar Pokémon:', error);
+      console.error('Error loading Pokémon:', error);
     }
   }
 
-  async carregarImagemPokemon(id: number) {
+  async loadImagePokemon(id: number) {
     try {
-      const observable = this.apiService.obterImagemPokemon(id);
+      const observable = this.apiService.getImagePokemon(id);
       const data = await firstValueFrom(observable);
       const index = this.pokemons.findIndex(pokemon => pokemon.id === id);
       if (index !== -1) {
@@ -107,8 +109,8 @@ export class CatalogPokemonComponent implements OnInit {
     }
   }
 
-  detalharPokemon(pokemon:any){
-    this.router.navigate(['/detalhes-pokemon', pokemon.id, pokemon.name], { queryParams: { origin: 'listagem-pokemon'}});
+  detailPokemon(pokemon:any){
+    this.router.navigate(['/pokemon-details', pokemon.id, pokemon.name], { queryParams: { origin: 'pokemon-list'}});
   }
 
   checkFavorites(pokemon:any){

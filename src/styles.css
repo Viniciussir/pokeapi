@@ -6,14 +6,3 @@
 body {
     background: linear-gradient(180deg, #05acff 0%, #e2ef72 80%);
 }
-
-.title-pokeapi{
-    display: flex;
-    justify-content: center;
-    margin: 1vw;
-    font-size: 30px;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    text-transform: uppercase;
-}

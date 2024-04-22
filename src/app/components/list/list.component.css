@@ -1,51 +1,46 @@
-.pokemon-container {
+.list-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 10%;
 }
-.pokemon-item {
+
+.list-item {
     flex: 0 0 18%;
     max-width: 18%; 
     box-sizing: border-box;
     margin: 1%;
 }
 
-.pokemon {
+.item {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.pokemon span {
-    text-transform: capitalize;
-    font-size: 20px;
-    padding: 5px;
-}
-
-.pokemon-img {
+.item-img {
     position: relative; 
     display: inline-block; 
 }
 
-.pokemon-img img{
+.item-img img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     width: 10vw;
     border-radius: 10px;
 }
 
-.pokemon-img img:hover {
+.item-img img:hover {
     background-color: #bab6b6;
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.pokemon-img:hover button {
+.item-img:hover button {
     background-color: #bab6b6;
 }
 
-.pokemon-img button {
+.item-img button {
     width: 30px;
     height: 30px;
     background-color: #ffffff;
@@ -57,15 +52,22 @@
     outline: none;
 }
 
-.pokemon-img button.favorited {
+.item-img button.favorited {
     background-image: url('../../../assets/img/star-pokemon.png');
 }
 
-.pokemon-img button:not(.favorited) {
+.item-img button:not(.favorited) {
     background-image: url('../../../assets/img/star-pokemon-branca.png');
 }
 
-.pokemon-img button:hover {
+.item-img button:hover {
     transform: scale(1.2);
     background-color: #ffffff;
+    cursor: pointer;
+}
+
+.item-name {
+    text-transform: capitalize;
+    font-size: 25px;
+    padding: 5px;
 }

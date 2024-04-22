@@ -2,10 +2,11 @@
 
 <app-container>
 
+  <app-title
+    [value]="'Check Pokémon Details'">
+  </app-title>
+
   <section>
-    <span class="title-pokeapi">
-      Check Pokemon Details
-    </span>
     <span class="pokemon-name"> {{ name }}</span>
     <div class="pokemon-info">
       <img class="pokemon-image" src="{{ img }}" alt="Imagem do {{ name }}">

@@ -1,11 +1,19 @@
- <section class="pokemon-container">
-    <div *ngFor="let value of options" class="pokemon-item">
-        <div class="pokemon">
-            <div class="pokemon-img">
-                <img (click)="clickImg(value)" [src]="value.img" alt="{{ value.name }}">
-                <button [ngClass]="{ 'favorited': value.isFavorited }" (click)="clickButton(value)"></button>
+<section class="list-container">
+    <div *ngFor="let value of options" class="list-item">
+        <div class="item">
+            <div class="item-img">
+                <img 
+                    (click)="clickImg(value)" 
+                    [src]="value.img" 
+                    [alt]="value.name"
+                    title="Click to access Details">
+                <button 
+                    [ngClass]="{ 'favorited': value.isFavorited }" 
+                    (click)="clickButton(value)" 
+                    [title]="value.isFavorited ? 'Remove from favorites' : 'Click to favorite'">
+                </button>
             </div>
-            <span>{{ value.name }}</span>
+            <span class="item-name">{{ value.name }}</span>
         </div>
     </div>
- </section>
+</section>

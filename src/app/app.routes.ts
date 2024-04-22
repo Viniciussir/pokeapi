@@ -6,23 +6,23 @@ import { FavoritesPokemonComponent } from './pages/favorites-pokemon/favorites-p
 export const routes: Routes = [
      {
         path: "",
-        redirectTo:'/listagem-pokemon',
+        redirectTo:'/pokemon-list',
         pathMatch: 'full'
     },
     {
-        path: "listagem-pokemon",
+        path: "pokemon-list",
         component: CatalogPokemonComponent
     },
     {
-        path: "detalhes-pokemon/:id/:name",
+        path: "pokemon-details/:id/:name",
         component:  DetailsPokemonComponent
     },
     {
-        path: "detalhes-pokemon",
+        path: "pokemon-details",
         component:  DetailsPokemonComponent
     },
     {
-        path: "favoritos-pokemon",
+        path: "pokemon-favorites",
         component:  FavoritesPokemonComponent
     }
 ];

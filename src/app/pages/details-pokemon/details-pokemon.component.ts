@@ -6,6 +6,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ButtonComponent } from '../../components/button/button.component';
+import { TitleComponent } from '../../components/title/title.component';
 
 @Component({
   selector: 'app-details-pokemon',
@@ -15,7 +16,8 @@ import { ButtonComponent } from '../../components/button/button.component';
     ContainerComponent,
     FooterComponent,
     RouterLink,
-    ButtonComponent
+    ButtonComponent,
+    TitleComponent
   ],
   templateUrl: './details-pokemon.component.html',
   styleUrl: './details-pokemon.component.css'
@@ -51,13 +53,13 @@ export class DetailsPokemonComponent implements OnInit {
       this.id = Number(params['id']);
     });
     
-    this.carregarInformacoesPokemon(this.id);
-    this.carregarInfo(this.id);
+    this.loadInformationPokemon(this.id);
+    this.loadCharacteristic(this.id);
   }
 
-  async carregarInformacoesPokemon(id: number) {
+  async loadInformationPokemon(id: number) {
     try {
-      const observable = this.apiService.obterInformacoesPokemon(id);
+      const observable = this.apiService.getInformationPokemon(id);
       const data = await firstValueFrom(observable);
       this.img = data.sprites.front_default;
       this.abilities = data.abilities.map((item: { ability: { name: string } }) => item.ability.name);
@@ -69,25 +71,25 @@ export class DetailsPokemonComponent implements OnInit {
       this.specialDefense = data.stats.find((stat: any) => stat.stat.name === 'special-defense').base_stat;
       this.speed = data.stats.find((stat: any) => stat.stat.name === 'speed').base_stat;
     } catch (error) {
-      console.error('Erro ao carregar informações do Pokémon:', error);
+      console.error('Error loading Pokémon information:', error);
     }
   }
 
-  async carregarInfo(id: number) {
+  async loadCharacteristic(id: number) {
     try {
-      const observable = this.apiService.obterInfo(id);
+      const observable = this.apiService.getCharacteristic(id);
       const data = await firstValueFrom(observable);
       this.caracteristicas = data.descriptions.find((stat: any) => stat.language.name === 'en').description;
     } catch (error) {
-      console.error('Erro ao carregar info do Pokémon:', error);
+      console.error('Error loading Pokémon Characteristic:', error);
     }
   }
 
   return(){
-    if(this.origin == "listagem-pokemon"){
-      this.router.navigate(['/listagem-pokemon']);
+    if(this.origin == "pokemon-list"){
+      this.router.navigate(['/pokemon-list']);
     } else {
-      this.router.navigate(['/favoritos-pokemon']);
+      this.router.navigate(['/pokemon-favorites']);
     }
   }
 

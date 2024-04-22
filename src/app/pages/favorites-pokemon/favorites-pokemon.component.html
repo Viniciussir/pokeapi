@@ -2,14 +2,14 @@
 
 <app-container>
 
-    <span class="title-pokeapi">
-        POKEAPI - LIST OF FAVORITE POKEMON
-    </span>
+    <app-title
+        [value]="'List of Favorite Pokémon'">
+    </app-title>
 
     <app-list
         [options]="pokemons"
         [value]="pokemon"
-        (clickImgAction)="detalharPokemon($event)"
+        (clickImgAction)="detailPokemon($event)"
         (clickButtonAction)="removeToFavorite($event)">
     </app-list>
 

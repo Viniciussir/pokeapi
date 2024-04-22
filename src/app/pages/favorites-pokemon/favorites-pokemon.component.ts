@@ -7,6 +7,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ListComponent } from '../../components/list/list.component';
+import { TitleComponent } from '../../components/title/title.component';
 
 @Component({
   selector: 'app-favorites-pokemon',
@@ -17,7 +18,8 @@ import { ListComponent } from '../../components/list/list.component';
     FooterComponent,
     CommonModule,
     MessageComponent,
-    ListComponent
+    ListComponent,
+    TitleComponent
   ],
   templateUrl: './favorites-pokemon.component.html',
   styleUrl: './favorites-pokemon.component.css'
@@ -37,8 +39,8 @@ export class FavoritesPokemonComponent {
     this.pokemons = this.apiService.getFavorites();
   }
 
-  detalharPokemon(pokemon:any){
-    this.router.navigate(['/detalhes-pokemon', pokemon.id, pokemon.name], { queryParams: { origin: 'favoritos-pokemon'}});
+  detailPokemon(pokemon:any){
+    this.router.navigate(['/pokemon-details', pokemon.id, pokemon.name], { queryParams: { origin: 'pokemon-favorites'}});
   }
 
   removeToFavorite(item: any){
