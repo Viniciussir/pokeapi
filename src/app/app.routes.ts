@@ -18,10 +18,6 @@ export const routes: Routes = [
         component:  DetailsPokemonComponent
     },
     {
-        path: "pokemon-details",
-        component:  DetailsPokemonComponent
-    },
-    {
         path: "pokemon-favorites",
         component:  FavoritesPokemonComponent
     }

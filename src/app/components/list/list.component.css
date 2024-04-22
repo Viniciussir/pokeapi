@@ -71,24 +71,3 @@
     font-size: 25px;
     padding: 5px;
 }
-
-@media screen and (max-width: 768px) {
-    .list-container {
-        margin: 0 5%; /* Reduzindo a margem para dispositivos móveis */
-    }
-
-    .item-img img {
-        width: 100%;
-        max-width: 150px;
-    }
-    
-    .list-item {
-        flex: 0 0 45%; /* Ajustando o tamanho dos itens para caber em dispositivos móveis */
-        max-width: 45%;
-        margin: 2.5%; /* Ajustando a margem para dispositivos móveis */
-    }
-    
-    .item-name {
-        font-size: 18px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
-    }
-}
