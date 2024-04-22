@@ -1,3 +1,4 @@
+import { ListComponent } from './../../components/list/list.component';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
@@ -18,7 +19,8 @@ import { ButtonComponent } from '../../components/button/button.component';
     FooterComponent,
     CommonModule,
     MessageComponent,
-    ButtonComponent
+    ButtonComponent,
+    ListComponent
   ],
   templateUrl: './catalog-pokemon.component.html',
   styleUrl: './catalog-pokemon.component.css'
@@ -105,8 +107,8 @@ export class CatalogPokemonComponent implements OnInit {
     }
   }
 
-  detalharPokemon(id :any, name:any){
-    this.router.navigate(['/detalhes-pokemon', id, name], { queryParams: { origin: 'listagem-pokemon'}});
+  detalharPokemon(pokemon:any){
+    this.router.navigate(['/detalhes-pokemon', pokemon.id, pokemon.name], { queryParams: { origin: 'listagem-pokemon'}});
   }
 
   checkFavorites(pokemon:any){
@@ -123,7 +125,7 @@ export class CatalogPokemonComponent implements OnInit {
     if (index !== -1) {
       this.pokemons[index].isFavorited = true;
     }
-    this.showMessage(true);
+    this.showMessage(true, item.name);
   }
 
   removeToFavorite(item: any){
@@ -132,7 +134,7 @@ export class CatalogPokemonComponent implements OnInit {
     if (index !== -1) {
       this.pokemons[index].isFavorited = false;
     }
-    this.showMessage(false);
+    this.showMessage(false, item.name);
   }
 
   updateFavoritesStatus(itemList: any[]): void {
@@ -142,15 +144,15 @@ export class CatalogPokemonComponent implements OnInit {
     });
   }
 
-  showMessage(event:any){
+  showMessage(event:any, name:string){
     if(event){
-      this.message = "Your pokemon has been favorited!";
+      this.message = "The "+ name.charAt(0).toUpperCase() + name.slice(1) + " pokémon was added to favorites.";
       this.indShowMessage = true;
       setTimeout(() => {
         this.indShowMessage = false;
       }, 5000);
     } else{
-      this.message = "Your Pokémon has been removed from favorites!";
+      this.message = "The " + name.charAt(0).toUpperCase() + name.slice(1) + " pokémon was removed from favorites.";
       this.indShowMessage = true;
       setTimeout(() => {
         this.indShowMessage = false;

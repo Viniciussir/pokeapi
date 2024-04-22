@@ -6,17 +6,12 @@
         PokeAPI - List of Pokémon
     </span>
 
-    <section class="pokemon-container">
-        <div *ngFor="let pokemon of pokemons" class="pokemon-item">
-            <div class="pokemon">
-                <div class="pokemon-img">
-                    <img (click)="detalharPokemon(pokemon.id, pokemon.name)" [src]="pokemon.img" alt="{{ pokemon.name }}">
-                    <button [ngClass]="{ 'favorited': pokemon.isFavorited }" (click)="checkFavorites(pokemon)"></button>
-                </div>
-                <span>{{ pokemon.name }}</span>
-            </div>
-        </div>
-    </section>
+    <app-list
+        [options]="pokemons"
+        [value]="pokemon"
+        (clickImgAction)="detalharPokemon($event)"
+        (clickButtonAction)="checkFavorites($event)">
+    </app-list>
 
     <section class="button-container">
         <app-button 

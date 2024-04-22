@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { ListComponent } from '../../components/list/list.component';
 
 @Component({
   selector: 'app-favorites-pokemon',
@@ -15,7 +16,8 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
     ContainerComponent,
     FooterComponent,
     CommonModule,
-    MessageComponent
+    MessageComponent,
+    ListComponent
   ],
   templateUrl: './favorites-pokemon.component.html',
   styleUrl: './favorites-pokemon.component.css'
@@ -35,18 +37,18 @@ export class FavoritesPokemonComponent {
     this.pokemons = this.apiService.getFavorites();
   }
 
-  detalharPokemon(id :any, name:any){
-     this.router.navigate(['/detalhes-pokemon', id, name], { queryParams: { origin: 'favoritos-pokemon'}});
+  detalharPokemon(pokemon:any){
+    this.router.navigate(['/detalhes-pokemon', pokemon.id, pokemon.name], { queryParams: { origin: 'favoritos-pokemon'}});
   }
 
   removeToFavorite(item: any){
     this.pokemons = this.pokemons.filter(pokemon => pokemon.id !== item.id);
     this.apiService.removeFavorite(item);  
-    this.message = "Your Pokémon has been removed from favorites!";
+    this.message = "The " + item.name.charAt(0).toUpperCase() + item.name.slice(1) + " pokémon was removed from favorites.";
     this.indShowMessage = true;
-     setTimeout(() => {
-        this.indShowMessage = false;
-      }, 5000);
+    setTimeout(() => {
+      this.indShowMessage = false;
+    }, 5000);
   }
 
 }
