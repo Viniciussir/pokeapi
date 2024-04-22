@@ -5,6 +5,7 @@ import { firstValueFrom } from 'rxjs';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-details-pokemon',
@@ -13,7 +14,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
     NavbarComponent,
     ContainerComponent,
     FooterComponent,
-    RouterLink
+    RouterLink,
+    ButtonComponent
   ],
   templateUrl: './details-pokemon.component.html',
   styleUrl: './details-pokemon.component.css'

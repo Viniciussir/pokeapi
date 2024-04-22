@@ -23,8 +23,11 @@
     </div>
 
     <div class="button-container">
-      <button (click)="return()">Return</button>
-      <button>Search Pokemon</button>
+        <app-button 
+          [indDisabled]="false"
+          [name]="'Return'"
+          (action)="return()">
+        </app-button>
     </div>
     
   </section>

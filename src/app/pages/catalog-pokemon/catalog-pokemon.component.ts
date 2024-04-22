@@ -7,6 +7,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { MessageComponent } from '../../components/message/message.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-catalog-pokemon',
@@ -16,7 +17,8 @@ import { MessageComponent } from '../../components/message/message.component';
     NavbarComponent,
     FooterComponent,
     CommonModule,
-    MessageComponent
+    MessageComponent,
+    ButtonComponent
   ],
   templateUrl: './catalog-pokemon.component.html',
   styleUrl: './catalog-pokemon.component.css'
